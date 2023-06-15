@@ -1,19 +1,20 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import plotly as plt
 import plotly.express as px
-import plotly.graph_objects as go
+
 
 # Generate fake data func
 def generate_data():
-    categories = ["A","B","C","D","E"]
-    values = np.random.randint(1,50, size=5)
+    categories = ["A", "B", "C", "D", "E"]
+    values = np.random.randint(1, 50, size=5)
     return pd.DataFrame({"Category": categories, "Value": values})
+
 
 # App Layout
 st.title("POC Streamlit")
-chart_type = st.sidebar.selectbox("Select Chart Type", ("Pie Chart", "Histogram"))
+chart_type = st.sidebar.selectbox("Select Chart Type",
+                                  ("Pie Chart", "Histogram"))
 
 if chart_type == "Pie Chart":
     data = generate_data()
